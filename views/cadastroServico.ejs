@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Serviço</title>
+</head>
+<body>
+    <h1>Cadastro de Serviço</h1>
+    <form action="/cadastrar-servico" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        <label for="cpf">CPF:</label>
+        <input type="number" id="cpf" name="cpf">
+        <br>
+        <label for="cnpj">CNPJ:</label>
+        <input type="number" id="cnpj" name="cnpj">
+        <br>
+        <label for="telefone">Telefone:</label>
+        <input type="number" id="telefone" name="telefone" required>
+        <br>
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required>
+        <br>
+        <label for="descricao_servico">Descrição do Serviço:</label>
+        <input type="text" id="descricao_servico" name="descricao_servico" required>
+        <br>
+        <label for="dataehora">Data e Hora:</label>
+        <input type="datetime-local" id="dataehora" name="dataehora" required>
+        <br>
+        <button type="submit">Cadastrar Serviço</button>
+    </form>
+</body>
+</html>

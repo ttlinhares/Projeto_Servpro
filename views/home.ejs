@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Página Inicial</title>
+</head>
+
+<body>
+    <h1>Olá <%=nomeDoCliente%>
+    </h1>
+
+    <p>Serviços para hoje: <%=dataDeHoje%>
+    </p>
+
+    <div class="container">
+        <h2>Lista de Serviços Cadastrados</h2>
+        <div class="servicos-container">
+            <% servicos.forEach(function(servico) { %>
+                <div class="servico">
+                    <h3>
+                        <%= servico.nome %>
+                    </h3>
+                    <p><strong>Data e Hora:</strong>
+                        <%= servico.dataehora %>
+                    </p>
+                    <p><strong>Descrição do Serviço:</strong>
+                        <%= servico.descricao_servico %>
+                    </p>
+
+                    <!-- Botão de Edição -->
+                    <a href="/editar-servico/<%= servico.id %>"><button>Editar</button></a>
+
+                    <!-- Botão de Exclusão -->
+                    <a href="/excluir-servico/<%= servico.id %>"><button>Excluir</button></a>
+                </div>
+                <% }); %>
+        </div>
+    </div>
+</body>
+
+</html>

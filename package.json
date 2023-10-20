@@ -1,0 +1,31 @@
+{
+  "name": "projeto-interdisciplinar",
+  "version": "1.0.0",
+  "description": "Mvp do aplicativo Servpro",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttlinhares/Projeto_Servpro.git"
+  },
+  "keywords": [
+    "servpro"
+  ],
+  "author": "Thiago Linhares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ttlinhares/Projeto_Servpro/issues"
+  },
+  "homepage": "https://github.com/ttlinhares/Projeto_Servpro#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.1",
+    "nodemon": "^3.0.1",
+    "sequelize": "^6.33.0"
+  }
+}
