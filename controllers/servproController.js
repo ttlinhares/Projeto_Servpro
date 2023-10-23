@@ -15,11 +15,30 @@ async function novousuario(request, response) {
 }
 
 async function login(request, response) {
-    response.render("login");
+    response.render("login", { message: '' });
 }
 
-async function cadtemp(request, response) {
-    response.render("cadastroservico");
+async function logon(request, response) {
+    const emailuser = request.body.email;
+    const senhauser = request.body.senha;
+
+    const usuario =  await usuarioModel.findOne({
+        where:{
+            email: emailuser,
+            senha: senhauser
+        }
+    });
+
+
+    if (!usuario){
+        response.render("login", { message: 'Usuário ou senha inválidos!' });
+    };
+    if(usuario){
+        home(request,response);
+
+    };
+
+
 }
 
 async function cadastrousuario(request, response) {
@@ -43,4 +62,4 @@ async function cadserv(request, response) {
 
 
 
-export default { home, novousuario, cadastrousuario, login, cadtemp, cadserv }
+export default { home, novousuario, cadastrousuario, login, logon, cadserv }

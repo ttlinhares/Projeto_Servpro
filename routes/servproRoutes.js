@@ -5,7 +5,7 @@ const router = Router();
 router.get("/", servproController.novousuario);
 router.post("/novo", servproController.cadastrousuario);
 router.get("/login", servproController.login);
-router.get("/logon", servproController.cadtemp);
+router.post("/logon", servproController.logon);
 router.post("/cadastrar-servico", servproController.cadserv);
 router.get("/home", servproController.home);
 //router.get("/", cadAlunosController.index);
