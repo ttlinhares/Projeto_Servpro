@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Serviço</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            flex-direction: column;
+        }
+
+        .h1 {
+            color: #ffffff;
+            font-size: 36px;
+            font-family: "Inter";
+            font-weight: 700;
+            line-height: 42px;
+            text-align: center;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .input {
+            width: 100%;
+            height: 39px;
+            padding: 0px 8px;
+            border: 0;
+            box-sizing: border-box;
+            border-radius: 12px;
+            background-color: #333333;
+            color: #c1c1c1;
+            font-size: 14px;
+            font-family: "Roboto";
+            line-height: 19px;
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            width: 100%;
+            height: 46px;
+            padding: 0px 8px;
+            border: 0;
+            box-sizing: border-box;
+            border-radius: 37px;
+            box-shadow: 0px 4px 20px rgba(3, 3, 3, 0.1);
+            background-color: #1e90ff;
+            color: #ffffff;
+            font-size: 14px;
+            font-family: "Inter";
+            font-weight: 700;
+            line-height: 16px;
+            outline: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #alert {
+            color: #ffffff;
+            margin-top: 15px;
+            text-align: center;
+            font-family: "Inter";
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="h1">Editar Dados de Usuario</h1>
+    <div class="form-container">
+        <form action="/salvar-usuario/<%= usuario.id %>" method="post" id="editaserv">
+            <input class="input" type="text" id="nome" name="nome" placeholder="Nome" value="<%= usuario.nome %>" required>
+            <br>
+            <input class="input" type="email" id="email" name="email" placeholder="E-mail" value="<%= usuario.email %>" required>
+            <br>
+            <input class="input" type="password" id="senha" name="senha" placeholder="Senha" required>
+            <br>
+            <button class="button" type="submit" id="confirmaEdicao">Confirmar Alterações</button>
+            <div id="alert">
+                <p>Alterações salvas com Sucesso!</p>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const editaServ = document.getElementById("editaserv");
+            const alert = document.getElementById("alert");
+
+            editaServ.addEventListener("submit", function(event) {
+                if (!confirm('Tem certeza que deseja salvar as alterações?')) {
+                    event.preventDefault();
+                } else {
+                    alert.style.display = "block";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

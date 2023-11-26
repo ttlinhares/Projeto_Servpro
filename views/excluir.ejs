@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+</head>
+
+<body>
+
+    <h1 class="h1">Olá <%=userNAME%></h1>
+
+    <p>Serviços para hoje:</p>
+
+    <a href="/home"><button class="button" type="button">Voltar para Pagina Inicial</button></a>
+    <br>
+    <a href="/logout"><button class="button" type="button">Sair</button></a>
+
+
+    <div class="container">
+        <h2>Lista de Serviços Cadastrados</h2>
+        <div class="servicos-container">
+            <% servicos.forEach(function(servico) { %>
+                <div class="servico">
+                    <h3><%= servico.nome %></h3>
+                    <p><strong>Data e Hora:</strong> <%= servico.dataehora %></p>
+                    <p><strong>Descrição do Serviço:</strong> <%= servico.descricao_servico %></p>
+
+                    <a href="/excluir-servico/<%= servico.id %>" onclick="return confirm('Tem certeza que deseja excluir este serviço?')">
+                        <button class="button">Excluir</button>
+                      </a>
+                </div>
+                <% }); %>
+        </div>
+    </div>
+    <script>
+        function confirmaExclusao() {
+            if (confirm('Tem certeza que deseja excluir este serviço?')) {
+                servpro
+
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

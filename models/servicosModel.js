@@ -1,7 +1,8 @@
 import { Sequelize } from "sequelize";
 import db from "../db/db.js";
+import usuarioModel from "./usuarioModel.js";
 
-export default db.define("servicos",{
+const servicosModel = db.define("servicos",{
     id:{
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -36,4 +37,13 @@ export default db.define("servicos",{
         type: Sequelize.DATE,
         allowNull: false
     },
+
 })
+
+servicosModel.belongsTo(usuarioModel, {
+    constraints: true,
+    foreignKey: "idUsuario"
+})
+
+export default {servicosModel};
+

@@ -72,41 +72,58 @@
     </style>
 </head>
 <body>
-    <h1 class="h1">Cadastro de Serviço</h1>
+    <h1 class="h1">Alterar Servico</h1>
     <div class="form-container">
-        <form action="/cserv" method="post">
+        <form action="/update-servico/<%= servico.id %>" method="post">
             <table>
                 <tr>
                     <td><label class="label" for="nome">Nome:</label></td>
-                    <td><input class="input" type="text" id="nome" name="nome" required></td>
+                    <td><input class="input" type="text" id="nome" name="nome" value="<%=servico.nome%>" required></td>
                 </tr>
                 <tr>
                     <td><label class="label" for="cpf">CPF:</label></td>
-                    <td><input class="input" type="number" id="cpf" name="cpf"></td>
+                    <td><input class="input" type="number" id="cpf" name="cpf"  value="<%=servico.cpf%>" ></td>
                 </tr>
                 <tr>
                     <td><label class="label" for="cnpj">CNPJ:</label></td>
-                    <td><input class="input" type="number" id="cnpj" name="cnpj"></td>
+                    <td><input class="input" type="number" id="cnpj" name="cnpj" value="<%=servico.cnpj%>"></td>
                 </tr>
                 <tr>
                     <td><label class="label" for="telefone">Telefone:</label></td>
-                    <td><input class="input" type="number" id="telefone" name="telefone" required></td>
+                    <td><input class="input" type="number" id="telefone" name="telefone"  value="<%=servico.telefone%>" required></td>
                 </tr>
                 <tr>
                     <td><label class="label" for="endereco">Endereço:</label></td>
-                    <td><input class="input" type="text" id="endereco" name="endereco" required></td>
+                    <td><input class="input" type="text" id="endereco" name="endereco"  value="<%=servico.endereco%>" required></td>
                 </tr>
                 <tr>
                     <td><label class="label" for="descricao_servico">Descrição do Serviço:</label></td>
-                    <td><input class="input" type="text" id="descricao_servico" name="descricao_servico" required></td>
+                    <td><input class="input" type="text" id="descricao_servico" name="descricao_servico"  value="<%=servico.descricao_servico%>" required></td>
                 </tr>
                 <tr>
                     <td><label class="label" for="dataehora">Data e Hora:</label></td>
-                    <td><input class="input" type="datetime-local" id="dataehora" name="dataehora" required></td>
+                    <td><input class="input" type="datetime-local" id="dataehora" name="dataehora" value="<%=servico.dataehora%>" required></td>
                 </tr>
             </table>
-            <button class="button" type="submit">Cadastrar Serviço</button>
+            <button class="button" type="submit">Salvar Alterações</button>
+            <div id="alert" style="display: none;">
+                <p>Alterações salvas com Sucesso!</p>
+
+            </div>
+
         </form>
+        <script>
+            document.addEventListener("DOMContentLoaded", function confirmaEdicao () {
+                const salvaAlteracao = document.getElementById("submitButton");
+                const alert = document.getElementById("alert");
+
+                submitButton.addEventListener("click", function (event) {
+                    event.preventDefault(); /// ativar o método post de envio
+                    alert.style.display = "block";
+                });
+            });
+            </script>
+
     </div>
 </body>
 </html>
